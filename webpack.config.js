@@ -17,11 +17,11 @@ module.exports={
 
   devServer: {
     contentBase: './public',
-    port: '3000'
+    port: '3000',
+    historyApiFallback: true,
   },
 
   resolve: {
-    // modules : [pathSrc, 'node_modules'],
     alias: {
       app: `${pathSrc}/app`,
       actions: `${pathSrc}/actions`,

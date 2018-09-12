@@ -18,3 +18,6 @@ export function setUser(data) {
   }
 }
 
+export function removeUser() {
+  localStorage.removeItem('login')
+}

@@ -6,6 +6,7 @@ import {Config} from 'constants/ThemeColors';
 import SidenavContent from './SidenavContent';
 import UserInfo from 'components/UserInfo';
 import {COLLAPSED_DRAWER, FIXED_DRAWER} from 'constants/ActionTypes';
+import { logoutAction } from 'actions/login';
 
 
 class SideNav extends React.PureComponent {
@@ -34,7 +35,7 @@ class SideNav extends React.PureComponent {
     }
 
     render() {
-        const {navCollapsed, drawerType} = this.props;
+        const {navCollapsed, drawerType, logoutAction} = this.props;
         const drawerStyle = drawerType.includes(FIXED_DRAWER) ? 'd-xl-flex' : drawerType.includes(COLLAPSED_DRAWER) ? '' : 'd-flex';
         let type = 'permanent';
         if (drawerType.includes(COLLAPSED_DRAWER) || (drawerType.includes(FIXED_DRAWER) && this.state.width < 1200)) {
@@ -51,7 +52,7 @@ class SideNav extends React.PureComponent {
                             paper: 'side-nav',
                         }}
                 >
-                    <UserInfo/>
+                    <UserInfo logoutAction={ logoutAction }/>
                     <SidenavContent/>
                 </Drawer>
             </div>
@@ -63,6 +64,11 @@ const mapStateToProps = ({settings}) => {
     const {navCollapsed, drawerType} = settings;
     return {navCollapsed, drawerType}
 };
-
-export default withRouter(connect(mapStateToProps)(SideNav));
+const mapDispatchToProps = (dispatch) => {
+    return{
+      dispatch,
+      logoutAction: (val) => dispatch(logoutAction(val)),
+    }
+  } 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideNav));
 

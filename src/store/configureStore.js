@@ -4,9 +4,10 @@ import thunk from 'redux-thunk';
 import rootReducer from 'reducers';
 import createLogger from 'redux-logger'; 
 import appStateMiddleware from './middleware/appState';
+import { getUser } from 'utils/localStorage'
 
 let initialState = {
-  
+  login: {id: getUser()}
 };
 
 let middleware;

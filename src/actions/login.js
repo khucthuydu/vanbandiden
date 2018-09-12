@@ -1,7 +1,9 @@
-import { LOGIN_START, LOGIN_SUCCESS} from "constants/Action_constants";
+import { LOGIN_START, LOGIN_SUCCESS, LOGOUT} from "constants/Action_constants";
 import { URL_USER_LOGIN} from "constants/Endpoint";
-
+import { setUser, removeUser } from 'utils/localStorage'
+import { navigatedLogin } from 'utils/Navigated'
 import client from 'services/base'
+
 export const loginStart = () => ({
   type: LOGIN_START
 })
@@ -10,26 +12,36 @@ export const loginSuccess = (data) => ({
   payload: data
 })
 
+export const logout = () =>({
+  type: LOGOUT
+})
+
 export const loginAction = (data) =>{
   return (dispatch) => {
-    console.log('sfd')
     dispatch(loginStart());
     return client().post(URL_USER_LOGIN, data)
     .then( res => {
-      let { id } = res.data;
+      let { id } = res.data.data;
       dispatch(
         loginSuccess({
         id,
         email: data.email
         })
       )
+      setUser(id)
+
     })
     .catch( err => {
-      dispatch(loginSuccess({
-        id:"",
-        email:""
-      })) 
+      dispatch(loginSuccess()) 
       return err
     })
+  }
+}
+
+export const logoutAction = (data) =>{
+  return (dispatch) => {
+    removeUser();
+    dispatch(logout())
+    navigatedLogin()
   }
 }

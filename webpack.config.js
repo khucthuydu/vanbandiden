@@ -73,6 +73,7 @@ module.exports={
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
     }),
+    new webpack.EnvironmentPlugin( { ...process.env } ),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([

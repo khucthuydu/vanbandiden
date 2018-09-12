@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Home, PageGo } from './priviteRouter';
+import Content from 'components/Content';
 import { isIOS, isMobile } from 'react-device-detect';
 
 import Sidebar from 'containers/SideNav';
@@ -50,12 +50,9 @@ class PriviteRouter extends Component {
                 <Header drawerType={drawerType} onToggleCollapsedNav={this.onToggleCollapsedNav}/>
               </div>
 
-              <main className="app-main-content-wrapper">
+              <main className="app-main-content-wrapper" style={{minHeight:"90vh"}}>
                 <div className="app-main-content">
-                  <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/pagego" component={PageGo} />
-                  </Switch>           
+                  <Content/>   
                 </div>
                 <Footer/>
               </main>

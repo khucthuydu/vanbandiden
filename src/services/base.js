@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getUser, setUser } from 'utils/localStorage'
+import { getUser } from 'utils/localStorage'
 let Token = null
 
 function getToken(){

@@ -17,7 +17,9 @@ class UserInfo extends React.Component {
     handleRequestClose = () => {
         this.setState({open: false});
     };
-
+    handleLogout = () => {
+        this.props.logoutAction();
+    }
     render() {
         return (
             <div className="user-profile d-flex flex-row align-items-center">
@@ -50,7 +52,7 @@ class UserInfo extends React.Component {
                     <MenuItem onClick={this.handleRequestClose}><i
                         className="zmdi zmdi-settings zmdi-hc-fw mr-2"/>Setting
                     </MenuItem>
-                    <MenuItem onClick={this.handleRequestClose}><i
+                    <MenuItem onClick={this.handleLogout}><i
                         className="zmdi zmdi-sign-in zmdi-hc-fw mr-2"/>Logout
                     </MenuItem>
                 </Menu>

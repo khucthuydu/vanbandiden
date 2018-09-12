@@ -10,7 +10,6 @@ class Login extends Component {
 		this.props.loginAction(this.state);
 	}
 	render(){
-		console.log(this.props)
 		let { email, password } = this.state;
 		return (
 			<div style={{ height: "100vh" }}>

@@ -6,10 +6,8 @@ class AuthRoute extends React.Component{
 	render(){
 
 		let { login } = this.props;
-	console.log(login);
-
 		return (
-				 (login.id !== "")
+				 (!!login.id)
 					? (<PriviteRoutes/>)
 					:	<PublicRoutes/>       
 			)

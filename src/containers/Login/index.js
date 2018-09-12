@@ -12,7 +12,7 @@ function mapStateToProps({ login }){
 
 function mapDispatchToProps(dispatch){
   return {
-    loginAction: bindActionCreators(dispatch, loginAction)
+    loginAction: bindActionCreators(loginAction, dispatch),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

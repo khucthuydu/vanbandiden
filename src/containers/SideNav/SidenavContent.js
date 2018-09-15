@@ -96,7 +96,7 @@ class SideNavContent extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link className="prepend-icon" to="/">
+                            <Link className="prepend-icon" to="/page">
                                 <span className="nav-text text-transform-none">eCommerce</span>
                             </Link>
                         </li>

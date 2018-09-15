@@ -6,7 +6,6 @@ import Categories from '../../containers/Categories';
 
 class Content extends Component {
   render(){
-    console.log(this.props.match)
     return(
       <Switch>
         <Route exact path="/" component={Home} />

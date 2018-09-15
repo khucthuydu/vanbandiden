@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
-import Login from 'containers/Login'
-class PublicRouter extends Component {
+import React from 'react';
+import {connect} from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
+const PublicRoute = ({
+  component: Component,
+  login,
+  ...rest
+}) => (
+  <Route
+    {...rest}
+    render={props => {
+      if (!!login.id ) 
+        return <Redirect to={'/'} />
+      else 
+        return <Component {...props} /> 
+    }}
+  />
+)
 
-  render(){
-    return(
-      <Switch>
-        <Route path="/" component={ Login } />
-      </Switch>       
-    )
-  }
-}
-export default withRouter(PublicRouter)
+export default connect( ({login}) => ({login}) )(PublicRoute);

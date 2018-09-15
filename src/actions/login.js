@@ -1,7 +1,6 @@
 import { LOGIN_START, LOGIN_SUCCESS, LOGOUT} from "constants/Action_constants";
 import { URL_USER_LOGIN} from "constants/Endpoint";
 import { setUser, removeUser } from 'utils/localStorage'
-import { navigatedLogin } from 'utils/Navigated'
 import client from 'services/base'
 
 export const loginStart = () => ({
@@ -40,8 +39,7 @@ export const loginAction = (data) =>{
 
 export const logoutAction = (data) =>{
   return (dispatch) => {
-    removeUser();
+    removeUser()
     dispatch(logout())
-    navigatedLogin()
   }
 }

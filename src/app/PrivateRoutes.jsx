@@ -52,7 +52,9 @@ class PriviteRouter extends Component {
 
               <main className="app-main-content-wrapper" style={{minHeight:"90vh"}}>
                 <div className="app-main-content">
-                  <Content/>   
+                  <Switch>
+                    <Route component={Content} />   
+                  </Switch>
                 </div>
                 <Footer/>
               </main>

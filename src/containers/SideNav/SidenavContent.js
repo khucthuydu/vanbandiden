@@ -84,6 +84,24 @@ class SideNavContent extends Component {
                         </li>
                     </ul>
                 </li>
+                <li className="menu">
+                    <Button href="javascript:void(0)">
+                        <i className="zmdi zmdi-view-dashboard zmdi-hc-fw"/>
+                        <span className="nav-text">Danh mục</span>
+                    </Button>
+                    <ul className="sub-menu">
+                        <li>
+                            <Link className="prepend-icon" to="/categories/doc-type">
+                                <span className="nav-text">Loại văn bản</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="prepend-icon" to="/">
+                                <span className="nav-text text-transform-none">eCommerce</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         );
     }

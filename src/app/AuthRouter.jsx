@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import { AuthRouter, PublicRoutes, PriviteRoutes } from './';
+import { PublicRoutes, PrivateRoutes } from './';
+
 class AuthRoute extends React.Component{
 	render(){
 
 		let { login } = this.props;
 		return (
 				 (!!login.id)
-					? (<PriviteRoutes/>)
+					? (<PrivateRoutes/>)
 					:	<PublicRoutes/>       
 			)
 	} 

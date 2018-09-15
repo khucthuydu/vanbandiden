@@ -1,13 +1,17 @@
 import React,{Component} from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
+import Page404 from '../NotFound';
+import Home from '../Home';
+import Categories from '../../containers/Categories';
 
-import Home from '../Home'
 class Content extends Component {
   render(){
+    console.log(this.props.match)
     return(
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/pagego" component={PageGo} /> */}
+        <Route path="/categories" component={Categories} />
+        <Route component={Page404} />
       </Switch>        
     )
   }

@@ -173,7 +173,7 @@ ul.nav-menu li.menu.active > a:before{
   @include rotate(90deg);
 }
 
-ul.nav-menu li.menu.open .sub-menu li.active > a {
+ul.nav-menu li.menu.open .sub-menu li > a.active {
   background-color: $sidebar-bg-darken;
   color: $sidebar-hover-color;
 }

@@ -127,7 +127,7 @@ class DocType extends Component {
           <TableHeaderColumn dataField='name' dataSort={true}
             customInsertEditor={{ getElement: this.customNameField }}>
             Tên loại tài liệu</TableHeaderColumn>
-        </BootstrapTable>,
+        </BootstrapTable>
       </div>
     )
   }
